@@ -1,22 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: first-app
+  name: demo-jenkins-app
   labels:
-    app: first-app
+    app: demo-jenkins-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: first-app
+      app: demo-jenkins-app
   template:
     metadata:
       labels:
-        app: first-app
+        app: demo-jenkins-app
     spec:
+      serviceAccountName: cicd-dev
       containers:
-        - name: first-app
-          image: 10.10.3.225:30002/demos/first_app:1.0
+        - name: demo_jenkins_app
+          image: 10.10.3.225:30002/demos/demo_jenkins:2.1
           imagePullPolicy: Always
           ports:
             - containerPort: 80
