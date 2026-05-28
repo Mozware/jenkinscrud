@@ -18,6 +18,6 @@ spec:
       containers:
         - name: demo_jenkins_app
           image: 10.10.3.225:30002/demos/demo_jenkins:2.1
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
